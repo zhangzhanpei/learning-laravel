@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    $this->app['My']->sayHello();
+    // $this->app['My']->sayHello(); //使用自定义服务
+    \My::sayHello(); //为自定义服务创建别名
 });
