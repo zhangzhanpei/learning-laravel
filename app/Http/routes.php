@@ -13,5 +13,13 @@
 
 Route::get('/', function () {
     // $this->app['My']->sayHello(); //使用自定义服务
+    // \Session::put('account', 'admin');
     \My::sayHello(); //为自定义服务创建别名
+});
+
+//这里使用中间件对请求进行判断处理
+Route::group(['middleware' => 'isLogin'], function(){
+    Route::get('/profile', function(){
+        echo '已登陆';
+    });
 });
